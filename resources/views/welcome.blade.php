@@ -88,7 +88,9 @@
 
                 <div class="login-links">
                     <ul>
-                        <li><a href="{{ route('auth.github.login') }}">Login with Github</a></li>
+                        {{-- <li><a href="{{ route('auth.github.login') }}">Login with Github</a></li> --}}
+                        <li><a href="{{ route('auth.socialite.login', ['provider' => 'github']) }}">Login with Github</a></li>
+                        <li><a href="{{ route('auth.socialite.login', ['provider' => 'github']) }}">Login with Twitter</a></li>
                     </ul>
                 </div>
             </div>

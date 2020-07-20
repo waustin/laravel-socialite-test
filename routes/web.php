@@ -21,5 +21,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Socialite
+// -------
+// Github
+/*
 Route::get('/login/github', 'Auth\SocialLoginController@redirectToGithub')->name('auth.github.login');
 Route::get('/login/github/callback', 'Auth\SocialLoginController@handleGithubCallback')->name('auth.github.callback');
+
+// Twitter
+Route::get('/login/twitter', 'Auth\SocialLoginController@redirectToTwitter')->name('auth.github.login');
+Route::get('/login/twitter/callback', 'Auth\SocialLoginController@handleTwitterCallback')->name('auth.github.callback');
+*/
+// General
+Route::get('/login/{provider}', 'Auth\SocialLoginController@redirectToProvider')->name('auth.socialite.login');
+Route::get('/login/{provider}/callback', 'Auth\SocialLoginController@handleProviderCallback')->name('auth.socialite.callback');
