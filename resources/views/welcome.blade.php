@@ -90,7 +90,9 @@
                     <ul>
                         {{-- <li><a href="{{ route('auth.github.login') }}">Login with Github</a></li> --}}
                         <li><a href="{{ route('auth.socialite.login', ['provider' => 'github']) }}">Login with Github</a></li>
-                        <li><a href="{{ route('auth.socialite.login', ['provider' => 'github']) }}">Login with Twitter</a></li>
+                        <li><a href="{{ route('auth.socialite.login', ['provider' => 'twitter']) }}">Login with Twitter</a></li>
+                        <li><a href="{{ route('auth.socialite.login', ['provider' => 'facebook']) }}">Login with Facebook</a></li>
+                    
                     </ul>
                 </div>
             </div>

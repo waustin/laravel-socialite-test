@@ -43,5 +43,7 @@ class SocialLoginController extends Controller
         // TODO: Check for valid provider
         $user = Socialite::driver($provider)->user();
         dd($user, $user->token);
+
+        // I think token is what we need to store and do a lookup on
     }
 }
