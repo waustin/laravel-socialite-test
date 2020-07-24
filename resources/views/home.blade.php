@@ -14,7 +14,8 @@
                         </div>
                     @endif
                     <p>
-                        Password Proteted page for: <strong>{{ Auth::user()->email}}</strong>
+                        Password Proteted page for: 
+                            <strong>[{{ Auth::user()->email}}] - [{{ Auth::user()->id}}]</strong>
                     </p>
                     <code class="debug">
                         {{Auth::user()}}
