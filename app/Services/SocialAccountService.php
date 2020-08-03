@@ -20,12 +20,20 @@ class SocialAccountService
         } else {
         
             // No Social Account Found
+            
+
+            // NEVER AUTO ASSOCIATE social and site user by email
+            // Never create user from email from provider
+            // Don't trust email provider address.
+
+
             // try to find a user with provider email.
             // TODO what if provider email is NULL
             $user = User::where('email', $providerUser->getEmail())->first();
 
             if( !$user ) {
                 // No matching User found, create a new one
+                // Show form and pre-fill
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
                     'name' => $providerUser->getName(),
