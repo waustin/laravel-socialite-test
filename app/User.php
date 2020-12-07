@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -38,5 +39,15 @@ class User extends Authenticatable
 
     public function accounts() {
         return $this->hasMany('App\LinkedSocialAccount');
+    }
+
+    // Helpers
+    public function getProfilePicUrlAttribute()
+    {
+        if($this->profile_pic) {
+            return Storage::url($this->profile_pic);
+        } else {
+            return '';
+        }
     }
 }

@@ -21,6 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/users', 'UserController@index')->name('users.index');
+Route::get('/users/{user}', 'UserController@show')->name('users.show');
+Route::post('/users/{user}', 'UserController@update')->name('users.update');
+
 // Socialite
 // -------
 // General
