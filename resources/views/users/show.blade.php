@@ -22,11 +22,19 @@
                     </div>
                     <div class="form-group">
                         @if($user->profile_pic)
-                            <label>Current Profile Pic</label>
-                            <img src="{{$user->profile_pic_url}}" alt="Profile Pic" />
+                            <div class="mb-2">
+                            <label>Current Profile Pic</label><br>
+                            <img src="{{$user->profile_pic_url}}" alt="Profile Pic" style="max-width: 200px;" />
+                            </div>
                         @endif
                         <label for="profile_pic">Change Pic</label>
-                        <input class="form-control-file" type="file" name="profile_pic"  id="profile_pic"/>
+                        <input class="form-control-file @error('profile_pic') is-invalid @enderror" 
+                                type="file" name="profile_pic"  id="profile_pic"/>
+                        @error('profle_pic')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>

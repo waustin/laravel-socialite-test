@@ -36,6 +36,14 @@ class UserController extends Controller
             'name' => $validated['name']
         ]);
 
+        // Upload the file if we have one
+        if( isset($validated['profile_pic']) ) {
+            //$user->profile_pic = $request->file('profile_pic')->store('user/profile_pics');
+            $public_disk='s3';
+            $user->profile_pic = $request->file('profile_pic')->store('user/profile_pics', $public_disk);
+            $user->save();
+        }
+
         return redirect(route('users.index'));
     }
 }
